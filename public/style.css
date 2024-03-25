@@ -1,0 +1,150 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-color: rgb(228, 228, 228);
+    margin: 0px;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.main-div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(223, 224, 255);
+    width: 70%;
+    margin: auto;
+}
+
+.footer {
+    margin-top: auto;
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    background-color: rgb(181, 230, 29);
+    width: 70%;
+    margin: auto;
+    padding-top: 5px;
+    border-top: 2px solid black;
+}
+
+/* -- Основной контент на странице -- */
+.div-in-main-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.div-categories-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.div-products {
+    display: flex;
+    flex-direction: row;
+}
+/* -- Основной контент на странице -- */
+
+/* -- Главное меню -- */
+.div-menu {
+    background-color: rgb(181, 230, 29);
+    position: sticky;
+    top: 0px;
+    border-bottom: 2px solid black;
+}
+
+.ul-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.li-menu-link {
+    margin-left: 2%;
+    margin-bottom: 7px;
+}
+
+.li-menu-link:last-child {
+    margin-left: auto;
+    margin-right: 1%;
+}
+
+.ul-menu a {
+    text-decoration: none;
+}
+
+.logo-image {
+    width: 100%;
+}
+/* -- Главное меню -- */
+
+/* -- Нижняя часть -- */
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: 5%;
+    width: 35%;
+}
+
+.footer-menus {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+    width: 65%;
+}
+
+.footer-content a {
+    margin-left: auto;
+}
+
+.footer-content img {
+    width: 100%;
+}
+
+.footer-ul-links a {
+    text-decoration: none;
+}
+
+.footer-text {
+    margin-top: 0px;
+    text-align: justify;
+}
+
+.footer-menus ul {
+    list-style-type: none;
+}
+
+.footer-ul-contacts li:nth-child(1)::before {
+    content: "\260E ";
+    margin-right: 5px;
+}
+
+.footer-ul-contacts li:nth-child(n+2)::before {
+    content: "\2709 ";
+    margin-right: 5px;
+}
+/* -- Нижняя часть -- */
+
+/* -- Для страницы 404 -- */
+.div-message-error-404 {
+    margin-top: 7%;
+    text-align: center;
+}
+
+.second-div-message-error-404 {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 60%;
+}
+/* -- Для страницы 404 -- */
