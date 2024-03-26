@@ -49,6 +49,47 @@ body {
 }
 /* -- Основной контент на странице -- */
 
+/* -- Авторизация\регистрация -- */
+.div-authorization, .div-registration {
+    display: flex;
+    flex-direction: column;
+    max-width: 30%;
+    border: 2px solid black;
+    margin: auto;
+    margin-bottom: 30%;
+    align-items: center;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 30px;
+}
+
+.div-authorization p, .div-registration p {
+    font-size: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.div-authorization a, .div-registration a {
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+.form-authorization, .form-registration {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-text {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.input-submit {
+    font-size: 20px;
+    margin-top: 5%;
+}
+/* -- Авторизация\регистрация -- */
+
 /* -- Главное меню -- */
 .div-menu {
     background-color: rgb(181, 230, 29);
