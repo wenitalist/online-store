@@ -18,6 +18,8 @@ body {
     background-color: rgb(223, 224, 255);
     width: 70%;
     margin: auto;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
 }
 
 .footer {
@@ -30,6 +32,8 @@ body {
     margin: auto;
     padding-top: 5px;
     border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
 }
 
 /* -- Основной контент на странице -- */
