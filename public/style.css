@@ -60,7 +60,8 @@ body {
     max-width: 30%;
     border: 2px solid black;
     margin: auto;
-    margin-bottom: 30%;
+    margin-top: 10%;
+    margin-bottom: 1%;
     align-items: center;
     padding-left: 2%;
     padding-right: 2%;
@@ -91,6 +92,15 @@ body {
 .input-submit {
     font-size: 20px;
     margin-top: 5%;
+    cursor: pointer;
+}
+
+#auth-error-message {
+    display: none;
+    color: red;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
 }
 /* -- Авторизация\регистрация -- */
 

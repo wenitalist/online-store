@@ -24,9 +24,9 @@ class AuthController
     public function createUser(Request $request) {
 
         $request->validate([
-            'login' => 'required|string|max:255',
-            'email' => 'required|email|unique:users|max:255',
-            'password' => 'required|string|min:6|max:255',
+            'login' => 'required|string|unique:users|max:15',
+            'email' => 'required|email|unique:users|max:30',
+            'password' => 'required|string|min:6|max:20',
         ]);
 
         $newModelUser = new User();
@@ -37,6 +37,6 @@ class AuthController
 
         $newModelUser->save();
 
-        return redirect()->route('mainPage');
+        return redirect()->route('authorization-page');
     }
 }
