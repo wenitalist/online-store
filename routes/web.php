@@ -10,6 +10,8 @@ Route::get('/', [MainController::class, 'show'])->name('main-page');
 Route::get('/authorization', [AuthController::class, 'showAuthorizationPage'])->name('authorization-page');
 Route::get('/registration', [AuthController::class, 'showRegistrationPage'])->name('registration-page');
 
+Route::get('/logout', [AuthController::class, 'logout']);
+
 Route::post('/authorization/login', [AuthController::class, 'login']);
 Route::post('/registration/create-user', [AuthController::class, 'createUser']);
 

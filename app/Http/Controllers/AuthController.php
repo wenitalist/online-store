@@ -33,6 +33,16 @@ class AuthController
         }
     }
 
+    public function logout(Request $request): RedirectResponse {
+
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('main-page');
+    }
+
     public function createUser(Request $request): RedirectResponse {
 
         $request->validate([
