@@ -2,9 +2,11 @@ document.addEventListener('DOMContentLoaded', function() {
     switch (window.location.pathname) {
         case '/registration':
             listenerForFormRegistration('form-registration');
+            listenersForInputs();
             break;
         case '/authorization':
             listenerForFormAuthorization('form-authorization');
+            listenersForInputs();
             break;
     }
 
@@ -77,6 +79,41 @@ document.addEventListener('DOMContentLoaded', function() {
                 return 'Неверный логин или пароль';
             default:
                 return false;
+        }
+    }
+
+    function listenersForInputs() {
+        inputLogin = document.getElementById('login');
+        inputPassword = document.getElementById('password');
+        inputEmail = document.getElementById('email');
+        
+        inputLogin.addEventListener('keypress', function(event) {
+            let inputChar = event.key;
+            let regex = new RegExp(/^[A-Za-z0-9_]+/);
+
+            if (!regex.test(inputChar)) {
+                event.preventDefault();
+            }
+        });
+
+        inputPassword.addEventListener('keypress', function(event) {
+            let inputChar = event.key;
+            let regex = new RegExp(/^[A-Za-z0-9!#$%&?*~_-]+/);
+
+            if (!regex.test(inputChar)) {
+                event.preventDefault();
+            }
+        });
+
+        if (inputEmail) {
+            inputEmail.addEventListener('keypress', function(event) {
+                let inputChar = event.key;
+                let regex = new RegExp(/^[A-Za-z0-9.@_-]+/);
+    
+                if (!regex.test(inputChar)) {
+                    event.preventDefault();
+                }
+            });
         }
     }
 });
