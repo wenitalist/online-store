@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
@@ -17,11 +19,21 @@ class AuthController
         return view('registration');
     }
 
-    public function login() {
-        
+    public function login(Request $request): RedirectResponse {
+
+        $credentials = $request->validate([
+            'login' => 'required|string|max:30',
+            'password' => 'required|string|min:6|max:20',
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->route('main-page');
+        }
     }
 
-    public function createUser(Request $request) {
+    public function createUser(Request $request): RedirectResponse {
 
         $request->validate([
             'login' => 'required|string|unique:users|max:15',
