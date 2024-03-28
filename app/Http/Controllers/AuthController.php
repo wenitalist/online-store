@@ -19,8 +19,7 @@ class AuthController
         return view('registration');
     }
 
-    public function login(Request $request): RedirectResponse {
-
+    public function login(Request $request) {
         $credentials = $request->validate([
             'login' => 'required|string|max:30',
             'password' => 'required|string|min:6|max:20',
@@ -30,11 +29,12 @@ class AuthController
             $request->session()->regenerate();
 
             return redirect()->route('main-page');
+        } else {
+            return response()->json(['error' => 'Incorrect login or password'], 401);
         }
     }
 
     public function logout(Request $request): RedirectResponse {
-
         Auth::logout();
 
         $request->session()->invalidate();
@@ -44,7 +44,6 @@ class AuthController
     }
 
     public function createUser(Request $request): RedirectResponse {
-
         $request->validate([
             'login' => 'required|string|unique:users|max:15',
             'email' => 'required|email|unique:users|max:30',
