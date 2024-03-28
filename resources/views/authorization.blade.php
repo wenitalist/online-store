@@ -13,7 +13,7 @@
         <p>Авторизация</p>
         <form class='form-authorization' id='form-authorization' method='POST' action='authorization/login'>
             @csrf
-            <input class='input-text' type="text" id='login' name='login' required placeholder="Логин\почта">
+            <input class='input-text' type="text" id='login' name='login' required placeholder="Логин">
             <input class='input-text' type="password" id='password' name='password' required placeholder="Пароль">
             <input class='input-submit' type="submit" value="Войти">
         </form>
