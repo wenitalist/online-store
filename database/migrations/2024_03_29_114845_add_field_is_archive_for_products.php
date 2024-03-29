@@ -10,17 +10,16 @@ return new class extends Migration
     {
         if (!Schema::hasColumn('products', 'supplier_id')) {
             Schema::table('products', function (Blueprint $table) {
-                $table->foreignId('supplier_id')->after('quantity')->constrained('suppliers');
+                $table->boolean('is_archive')->after('quantity')->default(false);
             });
         }
     }
 
     public function down(): void
     {
-        if (Schema::hasColumn('products', 'supplier_id')) {
+        if (Schema::hasColumn('products', 'is_archive')) {
             Schema::table('products', function (Blueprint $table) {
-                $table->dropForeign(['supplier_id']);
-                $table->dropColumn('supplier_id');
+                $table->dropColumn('is_archive');
             });
         }
     }

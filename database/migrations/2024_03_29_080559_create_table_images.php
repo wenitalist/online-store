@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         if (!Schema::hasTable('images')) {
-            Schema::create('table_images', function (Blueprint $table) {
+            Schema::create('images', function (Blueprint $table) {
                 $table->id()->primary();
                 $table->string('name');
                 $table->foreignId('product_id')->constrained('products');
@@ -20,6 +20,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('table_images');
+        Schema::dropIfExists('images');
     }
 };
