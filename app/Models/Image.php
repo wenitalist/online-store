@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * Class Image
- * 
  * @property int $id
  * @property string $name
  * @property int $product_id
@@ -27,11 +25,6 @@ class Image extends Model
         'product_id'
     ];
 
-    /**
-     * Получить товар по изображению.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);

@@ -8,8 +8,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 /**
- * Class User
- * 
  * @property int $id
  * @property string $login
  * @property string $email
@@ -51,11 +49,6 @@ class User extends Authenticatable
         ];
     }
 
-    /**
-     * Получить покупки пользователя.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
     public function purchases(): HasMany
     {
         return $this->hasMany(Purchase::class);

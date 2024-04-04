@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * Class PurchaseItem
- * 
  * @property int $id
  * @property int $purchase_id
  * @property int $product_id
