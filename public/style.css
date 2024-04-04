@@ -128,8 +128,12 @@ body {
     margin-bottom: 7px;
 }
 
-.li-menu-link:last-child {
+.li-menu-link:nth-last-child(2) {
     margin-left: auto;
+    margin-right: 1%;
+}
+
+.li-menu-link:last-child {
     margin-right: 1%;
 }
 
@@ -141,6 +145,10 @@ body {
     width: 100%;
 }
 /* -- Главное меню -- */
+
+/* -- Раскрывающийся список для главного меню -- */
+
+/* -- Раскрывающийся список для главного меню -- */
 
 /* -- Нижняя часть -- */
 .footer-content {

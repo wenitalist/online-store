@@ -53,4 +53,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Purchase::class);
     }
+
+    public function isAdmin(): bool {
+        if ($this->status === 'admin') {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
