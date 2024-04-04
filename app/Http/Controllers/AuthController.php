@@ -12,11 +12,11 @@ use Illuminate\View\View;
 class AuthController
 {
     public function showAuthorizationPage(): View {
-        return view('authorization');
+        return view('auth.authorization');
     }
 
     public function showRegistrationPage(): View {
-        return view('registration');
+        return view('auth.registration');
     }
 
     public function login(Request $request) {
