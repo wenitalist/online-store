@@ -32,6 +32,8 @@ class AuthController
             $user = Auth::user();
             if ($user->isAdmin()) {
                 $request->session()->put('status', 'admin');
+            } else {
+                $request->session()->put('status', 'default');
             }
             
             return redirect()->route('main-page');
