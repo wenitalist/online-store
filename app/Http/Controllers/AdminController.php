@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Supplier;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class AdminController
@@ -21,17 +22,17 @@ class AdminController
         // Сохранение нового товара
     }
 
-    public function createNewSupplier(Request $request) {
-        if (!Supplier::where('name', $request->input('supplier-name'))->first()) {
-            $supplier = new Supplier();
+    public function createNewSupplier(Request $request): RedirectResponse {
+        $request->validate([
+            'supplier-name' => 'required|string|unique:suppliers,name',
+        ]);
 
-            $supplier->name = $request->input('supplier-name');
-    
-            $supplier->save();
-    
-            return redirect()->route('new-supplier');
-        }
+        $supplier = new Supplier();
 
-        return response()->json(['error' => 'Supplier name has already occupied'], 422);
+        $supplier->name = $request->input('supplier-name');
+    
+        $supplier->save();
+    
+        return redirect()->route('new-supplier');
     }
 }

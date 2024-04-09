@@ -291,4 +291,9 @@ body {
     display: flex;
     flex-direction: row;
 }
+
+#new-supplier-message {
+    color: red;
+    display: none;
+}
 /* -- Админ панель -- */
