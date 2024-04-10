@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * Class Supplier
- * 
  * @property int $id
  * @property string $name
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -25,11 +23,6 @@ class Supplier extends Model
         'name'
     ];
 
-    /**
-     * Получить товары от поставщика.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
     public function products(): HasMany
     {
         return $this->hasMany(Product::class);

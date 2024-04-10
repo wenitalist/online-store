@@ -8,8 +8,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
- * Class Purchase
- * 
  * @property int $id
  * @property int $user_id
  * @property bool $paid
@@ -36,21 +34,11 @@ class Purchase extends Model
         'received' => false
     ];
 
-    /**
-     * Получить покупателя.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    /**
-     * Получить товары этой покупки.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
     public function products(): BelongsToMany
     {
         return $this->belongsToMany(Product::class, 'purchase_items');

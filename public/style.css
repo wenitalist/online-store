@@ -128,8 +128,12 @@ body {
     margin-bottom: 7px;
 }
 
-.li-menu-link:last-child {
+.li-menu-link:nth-child(4) {
     margin-left: auto;
+    margin-right: 1%;
+}
+
+.li-menu-link:last-child {
     margin-right: 1%;
 }
 
@@ -141,6 +145,10 @@ body {
     width: 100%;
 }
 /* -- Главное меню -- */
+
+/* -- Раскрывающийся список для главного меню -- */
+
+/* -- Раскрывающийся список для главного меню -- */
 
 /* -- Нижняя часть -- */
 .footer-content {
@@ -203,3 +211,110 @@ body {
     width: 60%;
 }
 /* -- Для страницы 404 -- */
+
+/* -- Админ панель -- */
+.admin-main-div {
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 1%;
+    width: 60%;
+    border: 2px solid black;
+}
+
+.admin-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgb(181, 230, 29);
+    width: 100%;
+    height: 5%;
+    border-bottom: 1px solid grey;
+}
+
+.admin-info p {
+    font-size: 35px;
+    margin: 10px;
+}
+
+.admin-info a {
+    margin-left: auto;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.admin-menu-action-section {
+    display: flex;
+    flex-direction: row;
+}
+
+.admin-menu {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid grey;
+    padding: 10px;
+}
+
+.admin-menu a {
+    text-decoration: none;
+    margin-bottom: 5px;
+    padding: 1px;
+}
+
+.action-section {
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+}
+
+.div-for-form-elements {
+    display: flex;
+    flex-direction: row;
+}
+
+.action-section input {
+    font-size: 20px;
+    margin-bottom: 7px;
+}
+
+.action-section select, option {
+    font-size: 20px;
+}
+
+.form-inputs-text-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-select-submit-elements {
+    display: flex;
+    flex-direction: row;
+    margin-left: 1%;
+}
+
+.new-product-form-select {
+    height: 25px;
+}
+
+.form-select-images {
+    display: flex;
+    flex-direction: column;
+}
+
+#input-images {
+    font-size: 15px;
+    margin-top: auto;
+    margin-bottom: 8px;
+}
+
+.new-product-form-submit {
+    height: 30px;
+    margin-left: 1%;
+}
+
+#new-supplier-message {
+    color: red;
+    display: none;
+}
+/* -- Админ панель -- */

@@ -12,11 +12,11 @@ use Illuminate\View\View;
 class AuthController
 {
     public function showAuthorizationPage(): View {
-        return view('authorization');
+        return view('auth.authorization');
     }
 
     public function showRegistrationPage(): View {
-        return view('registration');
+        return view('auth.registration');
     }
 
     public function login(Request $request) {
@@ -28,6 +28,14 @@ class AuthController
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
+            /** @var User|null $user */
+            $user = Auth::user();
+            if ($user->isAdmin()) {
+                $request->session()->put('status', 'admin');
+            } else {
+                $request->session()->put('status', 'default');
+            }
+            
             return redirect()->route('main-page');
         } else {
             return response()->json(['error' => 'Incorrect login or password'], 401);

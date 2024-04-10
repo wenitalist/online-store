@@ -9,8 +9,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * Class Product
- * 
  * @property int $id
  * @property string $name
  * @property string|null $description
@@ -38,41 +36,21 @@ class Product extends Model
         'supplier_id'
     ];
 
-    /**
-     * Получить изображения товара.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
     public function images(): HasMany
     {
         return $this->hasMany(Image::class);
     }
 
-    /**
-     * Получить поставщика товара.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
     public function supplier(): BelongsTo
     {
         return $this->belongsTo(Supplier::class);
     }
 
-    /**
-     * Получить категории товара.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
     public function categories(): BelongsToMany
     {
         return $this->belongsToMany(Category::class, 'product_categories');
     }
 
-    /**
-     * Получить покупки с этим товаром.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
     public function purchases(): BelongsToMany
     {
         return $this->belongsToMany(Purchase::class, 'purchase_items');
