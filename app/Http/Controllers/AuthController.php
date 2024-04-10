@@ -28,6 +28,14 @@ class AuthController
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
+            /** @var User|null $user */
+            $user = Auth::user();
+            if ($user->isAdmin()) {
+                $request->session()->put('status', 'admin');
+            } else {
+                $request->session()->put('status', 'default');
+            }
+            
             return redirect()->route('main-page');
         } else {
             return response()->json(['error' => 'Incorrect login or password'], 401);
