@@ -290,6 +290,27 @@ body {
 .form-select-submit-elements {
     display: flex;
     flex-direction: row;
+    margin-left: 1%;
+}
+
+.new-product-form-select {
+    height: 25px;
+}
+
+.form-select-images {
+    display: flex;
+    flex-direction: column;
+}
+
+#input-images {
+    font-size: 15px;
+    margin-top: auto;
+    margin-bottom: 8px;
+}
+
+.new-product-form-submit {
+    height: 30px;
+    margin-left: 1%;
 }
 
 #new-supplier-message {
