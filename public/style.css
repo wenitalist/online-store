@@ -301,6 +301,10 @@ body {
     height: 25px;
 }
 
+select[name='category'] {
+    margin-top: 5px;
+}
+
 .form-select-images {
     display: flex;
     flex-direction: column;

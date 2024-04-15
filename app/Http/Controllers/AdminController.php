@@ -12,8 +12,12 @@ class AdminController
 {
     public function showCreateNewProductPage() {
         $suppliers = Supplier::all();
+        $categories = Category::all();
 
-        return view('admin-panel.new-product', ['suppliers' => $suppliers]);
+        return view('admin-panel.new-product', [
+            'suppliers' => $suppliers,
+            'categories' => $categories
+        ]);
     }
 
     public function showCreateNewSupplierPage() {
@@ -33,6 +37,7 @@ class AdminController
             'price' => 'required|integer',
             'quantity' => 'required|integer',
             'supplier' => 'required|string',
+            'category' => 'required|string'
         ]);
 
         $product = new Product();
@@ -44,6 +49,8 @@ class AdminController
         $product->supplier_id = $request->input('supplier');
 
         $product->save();
+
+        $product->categories()->attach($request->input('category'));
 
         return redirect()->route('new-product');
     }
