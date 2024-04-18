@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Image;
 use App\Models\Product;
 use App\Models\Supplier;
 use Illuminate\Http\RedirectResponse;
@@ -43,14 +44,6 @@ class AdminController
             'images' => 'array|max:5',
         ]);
 
-        if ($request->hasFile('images')) {
-            foreach ($request->file('images') as $image) {
-                $filename = $image->hashName();
-
-                Storage::putFileAs('public/images', $image, $filename);
-            }
-        }
-
         $product = new Product();
 
         $product->name = $request->input('name');
@@ -60,6 +53,19 @@ class AdminController
         $product->supplier_id = $request->input('supplier');
 
         $product->save();
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $filename = $image->hashName();
+
+                Storage::putFileAs('public/images', $image, $filename);
+
+                $img = new Image();
+                $img->name = $filename;
+                $img->product_id = $product->id;
+                $img->save();
+            }
+        }
 
         $product->categories()->attach($request->input('category'));
 
