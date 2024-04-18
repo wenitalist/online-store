@@ -20,6 +20,12 @@
                         <option value={{ $supplier->id }}>{{ $supplier->name }}</option>
                     @endforeach
                 </select>
+                <select name='category' class='new-product-form-select'>
+                    <option disabled selected hidden>Категория</option> 
+                    @foreach ($categories as $category)
+                        <option value={{ $category->id }}>{{ $category->name }}</option>
+                    @endforeach
+                </select>
                 {{-- <input type="file" value='Загрузить картинки' id='input-images' name="images[]" multiple accept="image/jpeg"> --}}
             </div>
             <input type='submit' value='Добавить' class='new-product-form-submit'>

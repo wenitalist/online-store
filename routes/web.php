@@ -22,12 +22,14 @@ Route::middleware('auth')->group(function () {
         //Route::get('/admin/edit-product', [AdminController::class])->name('edit-product');
 
         Route::get('/admin/new-supplier', [AdminController::class, 'showCreateNewSupplierPage'])->name('new-supplier');
+        Route::get('/admin/categories', [AdminController::class, 'showCategoriesPage'])->name('categories');
 
         Route::post('/admin/new-product/save', [AdminController::class, 'createNewProduct']);
         //Route::get('/admin/del-product/del', [AdminController::class]);
         //Route::get('/admin/edit-product/save', [AdminController::class]);
 
         Route::post('/admin/new-supplier/save', [AdminController::class, 'createNewSupplier']);
+        Route::post('/admin/categories/new', [AdminController::class, 'createNewCategory']);
     });
 });
 
