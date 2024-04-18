@@ -3,7 +3,7 @@
 @section('title', 'Добавление товара')
 
 @section('action')
-<form action='/admin/new-product/save' method='POST'>
+<form action='/admin/new-product/save' method='POST' enctype='multipart/form-data'>
     @csrf
     <div class='div-for-form-elements'>
         <div class='form-inputs-text-div'>
@@ -26,7 +26,7 @@
                         <option value={{ $category->id }}>{{ $category->name }}</option>
                     @endforeach
                 </select>
-                {{-- <input type="file" value='Загрузить картинки' id='input-images' name="images[]" multiple accept="image/jpeg"> --}}
+                <input type='file' name='images[]' id='input-images' multiple accept='image/jpeg, image/png'>
             </div>
             <input type='submit' value='Добавить' class='new-product-form-submit'>
         </div>

@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Supplier;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController
 {
@@ -30,15 +31,25 @@ class AdminController
         return view('admin-panel.categories', ['categories' => $categories]);
     }
 
-    public function createNewProduct(Request $request): RedirectResponse {
+    public function createNewProduct(Request $request) {
         $request->validate([
             'name' => 'required|string',
             'description' => 'string|nullable',
             'price' => 'required|integer',
             'quantity' => 'required|integer',
             'supplier' => 'required|string',
-            'category' => 'required|string'
+            'category' => 'required|string',
+            'images.*' => 'image|mimes:jpeg,png|max:3072',
+            'images' => 'array|max:5',
         ]);
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $filename = $image->hashName();
+
+                Storage::putFileAs('public/images', $image, $filename);
+            }
+        }
 
         $product = new Product();
 
